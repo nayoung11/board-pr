@@ -19,6 +19,11 @@ public class Board5Controller {
 	@Autowired
 	private Board5Service board5service;
 
+	/***
+	 * HI!
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {
 		List<Board5> board5List = board5service.selectAll();
