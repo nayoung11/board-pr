@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<h2>고독한 유튜브</h2>
+<img src="/logo.png">
+
+<div class="item" th:each="item: ${board5List}">
+	<div class="text">
+		<span>제목: <span class="title" th:text="${item.title}"></span></span>
+		<span>조회수: <span class="viewCount">0</span></span>
+		<span>날짜: <span class="writeDate" th:text="${item.writeDate}"></span></span>
+	</div>
+	<div class="content">
+		<div class="content" th:utext="${item.content}"></div>
+	</div>
+	
+	<div class="button">
+		<form action="/update" method="GET">
+			<input type="hidden" name="no" th:value="${item.no}"/>
+			<button type="submit">수정하기</button>
+		</form>
+		
+		<form action="/delete" method="POST">
+		<input type="hidden" name="no" th:value="${item.no}"/>
+		<button type="submit">삭제하기</button>
+		</form>
+	</div>
+	
+
+</div>
+
+<a href="/insert">등록하기</a>
+</body>
+</html>
